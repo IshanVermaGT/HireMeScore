@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireMeScore - Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="petals-container" id="petalsContainer"></div>
+    <div class="container">
+        <div class="login-container">
+            <h1>Welcome Back to HireMeScore</h1>
+            <p>Login to analyze your resume</p>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" autocomplete="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" autocomplete="current-password" required>
+                </div>
+                
+                <button type="submit" class="btn-primary">Login</button>
+            </form>
+            
+            <p class="signup-link">
+                Don't have an account? <a href="signup.html">Sign Up</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Load Firebase v8 FIRST -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    
+    <!-- Initialize Firebase IMMEDIATELY after loading -->
+    <script>
+        // Your Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7K6AniKSS4CZsO3iGsFJqiaN40IDc4R4",
+            authDomain: "hiremescore-b1b05.firebaseapp.com",
+            projectId: "hiremescore-b1b05",
+            storageBucket: "hiremescore-b1b05.firebasestorage.app",
+            messagingSenderId: "460914828014",
+            appId: "1:460914828014:web:14715d397ea982136649ff"
+        };
+        
+        // Initialize Firebase - THIS MUST HAPPEN BEFORE any other code
+        firebase.initializeApp(firebaseConfig);
+        console.log("✅ Firebase initialized successfully");
+        
+        // Test that it works
+        console.log("Firebase apps:", firebase.apps.length); // Should show 1
+    </script>
+    
+    <!-- Petals Animation Script -->
+    <script>
+        function createPetals() {
+            const container = document.getElementById('petalsContainer');
+            const petalCount = 30; // Number of petals
+            
+            for (let i = 0; i < petalCount; i++) {
+                setTimeout(() => {
+                    const petal = document.createElement('div');
+                    petal.className = 'petal';
+                    
+                    // Random size between 10px and 25px
+                    const size = Math.random() * 15 + 10;
+                    petal.style.width = size + 'px';
+                    petal.style.height = size + 'px';
+                    
+                    // Random starting position
+                    petal.style.left = Math.random() * 100 + '%';
+                    
+                    // Random animation duration between 5s and 12s
+                    const duration = Math.random() * 7 + 5;
+                    petal.style.animationDuration = duration + 's';
+                    
+                    // Random delay
+                    petal.style.animationDelay = Math.random() * 5 + 's';
+                    
+                    // Random rotation
+                    petal.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    
+                    container.appendChild(petal);
+                    
+                    // Remove petal after animation to prevent memory leaks
+                    setTimeout(() => {
+                        petal.remove();
+                    }, duration * 1000 + 5000);
+                    
+                }, i * 200); // Stagger the creation
+            }
+        }
+
+        // Create petals when page loads
+        window.addEventListener('load', function() {
+            createPetals();
+            // Recreate petals every 15 seconds for continuous effect
+            setInterval(createPetals, 15000);
+        });
+    </script>
+
+    <!-- THEN load auth.js -->
+    <script src="/js/auth.js"></script>
+</body>
+</html>

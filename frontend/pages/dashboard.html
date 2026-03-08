@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HireMeScore - Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">HireMeScore</div>
+        <div class="nav-menu">
+            <span id="userName"></span>
+            <button onclick="logout()" class="btn-logout">Logout</button>
+        </div>
+    </nav>
+    
+    <div class="dashboard-container">
+        <div class="welcome-section">
+            <h2>Welcome, <span id="displayName"></span>!</h2>
+            <p>Upload your resume for AI-powered analysis</p>
+        </div>
+        
+        <div class="upload-section" id="uploadSection">
+            <div class="upload-area" id="uploadArea">
+                <input type="file" id="resumeUpload" accept=".pdf" hidden>
+                <div class="upload-content">
+                    <svg class="upload-logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+    <polyline points="17 8 12 3 7 8"/>
+    <line x1="12" y1="3" x2="12" y2="15"/>
+</svg>
+                    <h3>Upload Your Resume</h3>
+                    <p>Drag and drop or click to browse (PDF only)</p>
+                    <button onclick="document.getElementById('resumeUpload').click()" class="btn-upload">
+                        Choose File
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="loading-section" id="loadingSection" style="display: none;">
+            <div class="spinner"></div>
+            <p>Analyzing your resume with AI...</p>
+            <p class="loading-sub">This may take a few moments</p>
+        </div>
+        
+        <div class="results-section" id="resultsSection" style="display: none;">
+            <div class="score-card">
+                <h3>Your HireMeScore</h3>
+                <div class="score-circle">
+                    <span id="scoreValue">0</span>
+                </div>
+            </div>
+            
+            <div class="analysis-details">
+                <div class="analysis-tabs">
+                    <button class="tab-btn active" onclick="showTab('skills')">Skills Analysis</button>
+                    <button class="tab-btn" onclick="showTab('tips')">Improvement Tips</button>
+                    <button class="tab-btn" onclick="showTab('projects')">Projects</button>
+                </div>
+                
+                <div class="tab-content active" id="skillsTab">
+                    <!-- Skills analysis content will be inserted here -->
+                </div>
+                
+                <div class="tab-content" id="tipsTab">
+                    <!-- Improvement tips content will be inserted here -->
+                </div>
+                
+                <div class="tab-content" id="projectsTab">
+                    <!-- Projects analysis content will be inserted here -->
+                </div>
+            </div>
+            
+            <button onclick="analyzeAgain()" class="btn-secondary">Analyze Another Resume</button>
+        </div>
+        
+        <div class="history-section">
+            <h3>Previous Analyses</h3>
+            <div id="historyList" class="history-list">
+                <!-- Previous analyses will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- LOAD FIREBASE FIRST -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+
+    <!-- INITIALIZE FIREBASE -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyD7K6AniKSS4CZsO3iGsFJqiaN40IDc4R4",
+            authDomain: "hiremescore-b1b05.firebaseapp.com",
+            projectId: "hiremescore-b1b05",
+            storageBucket: "hiremescore-b1b05.firebasestorage.app",
+            messagingSenderId: "460914828014",
+            appId: "1:460914828014:web:14715d397ea982136649ff"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        console.log("✅ Firebase initialized on dashboard");
+    </script>
+
+    <!-- LOAD SCRIPTS -->
+    <script src="/js/auth.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>
