@@ -153,24 +153,25 @@ graph LR
 ### ⚠️ Important Notes
 This project was built during a hackathon - it's functional but may have edge cases!
 
-Make sure to add your own API keys in the .env file
+Make sure to add your own API keys in the .env file.
 
-Never commit your serviceAccountKey.json or .env files
+Never commit your serviceAccountKey.json or .env files.
 
-## 📸 Screenshots
-
-| Signup Page | Login Page | Dashboard |
-|:-----------:|:----------:|:---------:|
-| ![Signup](screenshots/signup.png) | ![Login](screenshots/login.png) | ![Dashboard](screenshots/dashboard.png) |
-
-| Analysis Results | History View |
-|:---------------:|:------------:|
-| ![Analysis](screenshots/analysis.png) | ![History](screenshots/history.png) |
-
-### 🌟 Star Us on GitHub!
-If you found this project useful, please give it a ⭐! It helps others discover it too.
-
-<p align="center"> <a href="https://github.com/IshanVermaGT/HireMeScore"> <img src="https://img.shields.io/github/stars/IshanVermaGT/HireMeScore?style=for-the-badge&logo=github&color=667EEA"> </a> <a href="https://github.com/IshanVermaGT/HireMeScore/fork"> <img src="https://img.shields.io/github/forks/IshanVermaGT/HireMeScore?style=for-the-badge&logo=github&color=84FAB0"> </a> </p>
+### 🤝 Contributors
+<p align="center">
+  <a href="https://github.com/IshanVermaGT">
+    <img src="https://img.shields.io/badge/IshanVermaGT-667EEA?style=for-the-badge&logo=github&logoColor=white">
+  </a>
+  <a href="https://github.com/its-AmitB">
+    <img src="https://img.shields.io/badge/its--AmitB-84FAB0?style=for-the-badge&logo=github&logoColor=black">
+  </a>
+  <a href="https://github.com/love371">
+    <img src="https://img.shields.io/badge/love371-84FAB0?style=for-the-badge&logo=github&logoColor=black">
+  </a>
+  <a href="https://github.com/sumit-git204">
+    <img src="https://img.shields.io/badge/sumit--git204-84FAB0?style=for-the-badge&logo=github&logoColor=black">
+  </a>
+</p>
 
 ### 📂 Directory Structure
 
